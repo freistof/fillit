@@ -13,9 +13,12 @@
 #ifndef FILLIT_H
 # define FILLIT_H
 
-# define BUFF_SIZE 5
 # include "libft/libft.h"
 # include <fcntl.h>
 # include <unistd.h>
+
+# include <stdio.h> // REMOVE
+
+int				ft_checkvalidity(char *filename);
 
 #endif

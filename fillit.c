@@ -12,27 +12,6 @@
 
 #include "fillit.h"
 
-int		ft_checkvalidity(char *string)
-{
-	int		fd;
-	int		ret;
-	char	buf[BUFF_SIZE];
-
-	fd = open(string, O_RDWR);
-	ret = BUFF_SIZE;
-	while (ret == BUFF_SIZE)
-	{
-		ret = read(fd, buf, BUFF_SIZE);
-		if (ret == 0)
-			break ;
-		buf[ret] = '\0';
-		ft_putstr(buf);
-		ret = BUFF_SIZE;
-	}
-	close(fd);
-	return (1);
-}
-
 int		main(int argc, char **argv)
 {
 	if (argc != 2)

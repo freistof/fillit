@@ -6,7 +6,7 @@
 #    By: fblom <marvin@codam.nl>                      +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/02/15 04:18:50 by fblom         #+#    #+#                  #
-#    Updated: 2019/02/15 04:22:13 by fblom         ########   odam.nl          #
+#    Updated: 2019/02/16 14:42:49 by fblom         ########   odam.nl          #
 #                                                                              #
 #******************************************************************************#
 
@@ -16,18 +16,31 @@ FLAGS = -Wall -Werror -Wextra
 
 INCL = fillit.h
 
-SRCS =
+LIB = libft/libft.a
+
+SRCS = fillit.c validity.c
 
 all: $(NAME)
 
 $(NAME):
-	gcc -c $(FLAGS) $(SRCS) -I $(INCL)
-	ar rc $(NAME) $(OSRC)
+	gcc -o $(NAME) $(FLAGS) $(SRCS) -I $(INCL) $(LIB)
 
 clean:
-
+	rm -f a.out fillit
 
 fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+lib:
+	make -C libft/
+
+libclean:
+	make -C libft/ clean
+
+libfclean:
+	make -C libft/ fclean
+
+libre:
+	make -C libft/ re

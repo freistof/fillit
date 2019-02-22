@@ -20,6 +20,5 @@
 # include <stdio.h> // REMOVE
 
 int				ft_checkvalidity(char *filename);
-int				tetri_connection(char *str);
 
 #endif

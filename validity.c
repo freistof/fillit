@@ -12,7 +12,6 @@
 
 #include "fillit.h"
 
-
 static int		tetri_connection(char *str)
 {
 	int		i;

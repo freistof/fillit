@@ -18,7 +18,7 @@ INCL = fillit.h
 
 LIB = ../libft/libft.a
 
-SRCS = fillit.c validity.c connections.c
+SRCS = fillit.c validity.c
 
 all: $(NAME)
 

@@ -12,6 +12,36 @@
 
 #include "fillit.h"
 
+
+static int		tetri_connection(char *str)
+{
+	int		i;
+	int		c; // connections
+
+	c = 0;
+	i = 0;
+	while (i < 21)
+	{
+		if (str[i] == '.' || str[i] == '\n')
+			;
+		else if (str[i] == '#')
+		{
+			if (str[i - 5] == '#')
+				c++;
+			if (str[i + 5] == '#')
+				c++;
+			if (str[i - 1] == '#')
+				c++;
+			if (str[i + 1] == '#')
+				c++;
+		}
+		i++;
+	}
+	if (c == 6 || c == 8)
+		return (1);
+	return (0);
+}
+
 static int		count_pounds_and_periods(char *block)
 {
 	int		i;

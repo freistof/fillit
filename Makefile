@@ -16,9 +16,9 @@ FLAGS = -Wall -Werror -Wextra
 
 INCL = fillit.h
 
-LIB = libft/libft.a
+LIB = ../libft/libft.a
 
-SRCS = fillit.c validity.c
+SRCS = fillit.c validity.c connections.c
 
 all: $(NAME)
 

@@ -25,6 +25,8 @@ static int		count_pounds_and_periods(char *block)
 	{
 		if (block[i] == '.')
 			periods++;
+		else if (block[i] == '\n')
+			;
 		else if (block[i] == '#')
 			pounds++;
 		else
@@ -52,6 +54,7 @@ static int		check_four_lines(int fd, char *block)
 		if (ft_strlen(pointer) != 4)
 			return (0);
 		temp = ft_strjoin(address, pointer);
+		temp = ft_strjoin(temp, "\n");
 		free(address);
 		free(pointer);
 		address = temp;
@@ -65,7 +68,8 @@ static int		check_four_lines(int fd, char *block)
 		ft_memmove(block, address, ft_strlen(address) + 1);
 		block[ft_strlen(address) + 1] = '\0';
 		printf("%s\n", block);
-		if (i == 0)
+		printf("connection result: %i\n\n", tetri_connection(block));
+		if (i == 0 || tetri_connection(block) != 1)
 			return (-3);
 		return (1);
 	}
@@ -85,6 +89,5 @@ int				ft_checkvalidity(char *filename)
 		ret = check_four_lines(fd, block);
 	if (ret == 0)
 		return (0);
-	printf("%s\n", block);
 	return (ret);
 }

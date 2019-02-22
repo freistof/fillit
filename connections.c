@@ -40,12 +40,3 @@ int		tetri_connection(char *str)
 		return (1);
 	return (0);
 }
-
-int		main(void)
-{
-	int	ret;
-
-	ret = tetri_connection("##..\n##..\n....\n....\n");
-	printf("return: %i\n", ret);
-	return (0);
-}

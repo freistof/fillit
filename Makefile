@@ -6,41 +6,37 @@
 #    By: fblom <marvin@codam.nl>                      +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/02/15 04:18:50 by fblom         #+#    #+#                  #
-#    Updated: 2019/02/16 14:42:49 by fblom         ########   odam.nl          #
+#    Updated: 2019/02/27 14:58:03 by fblom         ########   odam.nl          #
 #                                                                              #
 #******************************************************************************#
 
 NAME = fillit
 
+LIBPATH = libft/
+
 FLAGS = -Wall -Werror -Wextra
 
-INCL = fillit.h
+INCL = fillitft/fillit.h
 
-LIB = ../libft/libft.a
+LIB = libft/libft.a
 
-SRCS = fillit.c validity.c
+FILES = fillit.c validity.c findcor.c fillit_solver.c makelist.c
+
+SRCS :=${addprefix fillitft/, $(FILES)}
 
 all: $(NAME)
 
 $(NAME):
-	gcc -o $(NAME) $(FLAGS) $(SRCS) -I $(INCL) $(LIB)
+	make -C $(LIBPATH)
+	gcc -o $(NAME) $(FLAGS) $(SRCS) $(LIB)
 
 clean:
-	rm -f a.out fillit
+	rm -f
+	make -C $(LIBPATH) clean
 
 fclean: clean
 	rm -f $(NAME)
+	make -C $(LIBPATH) fclean
 
 re: fclean all
-
-lib:
-	make -C libft/
-
-libclean:
-	make -C libft/ clean
-
-libfclean:
-	make -C libft/ fclean
-
-libre:
-	make -C libft/ re
+	make -C $(LIBPATH) re
